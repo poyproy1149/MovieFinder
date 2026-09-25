@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Movie Finder</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+     <!-- Header -->
+<header>
+
+    <div class="hero-backdrop" aria-hidden="true"></div>
+
+    <div class="hero-content">
+        <div class="hero-badge">Featured Collection</div>
+        <h1>🎬 Movie Finder</h1>
+        <p>Find your favorite movies!</p>
+    </div>
+
+    <button id="themeToggle" class="theme-toggle" type="button">
+        🌙
+    </button>
+
+</header>
+
+    <!-- Search -->
+<section class="search-box">
+
+    <h2>Search Movies</h2>
+
+    <div class="filters">
+
+        <!-- Genre -->
+        <div class="filter">
+            <label for="genre">ประเภทหนัง</label>
+
+            <select id="genre">
+                <option value="">ทุกประเภท</option>
+            </select>
+        </div>
+
+            <!-- Rating -->
+            <div class="filter">
+                <label for="minRating">คะแนนขั้นต่ำ</label>
+
+                <select id="minRating">
+                    <option value="">ไม่กำหนด</option>
+                    <option value="5">5.0+</option>
+                    <option value="6">6.0+</option>
+                    <option value="7">7.0+</option>
+                    <option value="8">8.0+</option>
+                    <option value="9">9.0+</option>
+                </select>
+            </div>
+
+            <!-- Year From -->
+            <div class="filter">
+                <label for="yearFrom">ปีเริ่มต้น</label>
+
+                <select id="yearFrom">
+
+                    <option value="">ไม่กำหนด</option>
+
+                    <option value="2000">2000</option>
+                    <option value="2005">2005</option>
+                    <option value="2010">2010</option>
+                    <option value="2015">2015</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+
+                </select>
+            </div>
+
+        <div class="buttons">
+
+            <button id="searchButton">
+                🔎 ค้นหาหนัง
+            </button>
+
+            <button id="randomButton">
+                🎲 สุ่มหนัง
+            </button>
+
+            <button id="favoritesButton" class="favorite-list-button" type="button">
+                ❤️ หนังที่ชอบ
+            </button>
+
+        </div>
+
+</section>
+
+         <!-- Search Info -->
+    <div id="searchInfo">
+        เลือกเงื่อนไขแล้วกด "ค้นหาหนัง"
+    </div>
+
+         <!-- Movie List -->
+    <main id="movieList">
+
+    </main>
+
+         <!-- Movie Modal -->
+    <div id="movieModal">
+
+        <div id="modalContent">
+
+            <button id="closeModal">
+                ×
+            </button>
+
+        </div>
+
+    </div>
+
+<!-- JavaScript -->
+    <script src="/dashboard.js"></script>
+
+</body>
+
+</html>
