@@ -7,6 +7,10 @@ const PORT = 3000;
 
 app.use(express.static('public'));
 
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/public/index.html');
+});
+
 const TMDB_API_KEY = process.env.TMDB_API_KEY;
 
 // Bubble Sort
