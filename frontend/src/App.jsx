@@ -616,20 +616,31 @@ function App() {
 
       {activeTrailerKey && (
         <div className="modal-overlay" onClick={() => setActiveTrailerKey(null)} style={{ zIndex: 1200 }}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={() => setActiveTrailerKey(null)}>✕</button>
-            <iframe
-              width="100%"
-              height="400"
-              src={`https://www.youtube.com/embed/${activeTrailerKey}?autoplay=1`}
-              title="Movie Trailer"
-              frameBorder="0"
-              allowFullScreen
-            ></iframe>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ textAlign: 'center', padding: '30px 20px' }}>
+            <button className="modal-close" onClick={() => setActiveTrailerKey(null)}>X</button>
+            <h3 style={{ marginBottom: '20px', color: '#fff' }}>🎬 Movie Trailer</h3>
+            <a 
+              href={`https://www.youtube.com/watch?v=${activeTrailerKey}`} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-block',
+                padding: '14px 28px',
+                backgroundColor: '#ff0000',
+                color: '#ffffff',
+                borderRadius: '8px',
+                textDecoration: 'none',
+                fontWeight: 'bold',
+                fontSize: '16px',
+                boxShadow: '0 4px 15px rgba(255,0,0,0.4)'
+              }}
+            >
+              ▶ รับชม Trailer บน YouTube (แท็บใหม่)
+            </a>
           </div>
         </div>
       )}
-
+      
       <button
         className="btn-floating-random"
         onClick={handleSearchCardRandomize}
