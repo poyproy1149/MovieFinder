@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 
-// ดึง URL จาก Environment Variable ถ้าไม่มี (รันในเครื่อง) ให้ใช้ http://localhost:3000
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
 // ==========================================
 // 🧠 DSA 2: CUSTOM QUICK SORT ALGORITHM (เขียนเองไม่ใช้ Array.prototype.sort())
 // Time Complexity: O(n log n)
@@ -105,8 +103,8 @@ function App() {
         if (activeFilters.yearFrom) params.append('yearFrom', activeFilters.yearFrom)
 
         const [movieResponse, genreResponse] = await Promise.all([
-          fetch(`${API_BASE_URL}/movies?${params.toString()}`),
-          fetch(`${API_BASE_URL}/genres`)
+          fetch(`/movies?${params.toString()}`),
+          fetch('/genres')
         ])
 
         if (!movieResponse.ok || !genreResponse.ok) throw new Error('ไม่สามารถโหลดข้อมูลได้')
@@ -169,7 +167,7 @@ function App() {
       if (minRatingFilter) params.append('minRating', minRatingFilter)
       if (yearFromFilter) params.append('yearFrom', yearFromFilter)
 
-      const response = await fetch(`${API_BASE_URL}/movies?${params.toString()}`)
+      const response = await fetch(`/movies/random?${params.toString()}`)
       const data = await response.json()
 
       if (data.found && data.movie) {
@@ -195,7 +193,7 @@ function App() {
       if (activeFilters.minRating) params.append('minRating', activeFilters.minRating)
       if (activeFilters.yearFrom) params.append('yearFrom', activeFilters.yearFrom)
 
-      const response = await fetch(`${API_BASE_URL}/movies?${params.toString()}`)
+      const response = await fetch(`/movies?${params.toString()}`)
       if (!response.ok) throw new Error('ไม่สามารถโหลดหนังเพิ่มเติมได้')
 
       const data = await response.json()
@@ -216,8 +214,8 @@ function App() {
     setMovieProviders({ flatrate: [], rent: [], buy: [] })
     try {
       const [creditsRes, providersRes] = await Promise.all([
-        fetch(`${API_BASE_URL}/movies?${movie.id}/credits`),
-        fetch(`${API_BASE_URL}/movies?${movie.id}/providers`)
+        fetch(`/movie/${movie.id}/credits`),
+        fetch(`/movie/${movie.id}/providers`)
       ])
       const creditsData = await creditsRes.json()
       const providersData = await providersRes.json()
@@ -642,7 +640,7 @@ function App() {
           </div>
         </div>
       )}
-
+      
       <button
         className="btn-floating-random"
         onClick={handleSearchCardRandomize}
